@@ -60,7 +60,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
         doctors.map(d=>{
           {d.doctorID==localStorage.getItem('doctorID') ?
           
-          updateUser=d : console.log(d.doctorRequests)}
+          updateUser=d : console.log('')}
         })
 
 
@@ -110,7 +110,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
       teams.map(d=>{
           {d.teamID==localStorage.getItem('teamID') ?
           
-          updateUser=d : console.log(d.teamID)}
+          updateUser=d : console.log('')}
         })
         updateUser.teamMates.push(id);
 
