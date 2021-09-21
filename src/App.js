@@ -15,9 +15,31 @@ const App=()=> {
     { firstName: "Rafsan", lastName: "Wayne",patientID: "009",diseases: ["COVID", "1-kidney", "Impaired vision"],isAdmitted: false}
   ]);
 
-  const [pageDataOf, setPageDataOf]=useState('Qustion1');
+  const [patientsFromOhterHos,setPatientsFromOhterHos]=useState([
+    { firstName: "Agent", lastName: "Pena",diseases: ["COVID"]},
+    { firstName: "Heisenberg", lastName: "Bear",diseases: ["Headache"]},
+    { firstName: "Okarin", lastName: "May",diseases: ["Broken Wrist", "Mad-scientist"]},
+    { firstName: "Hououin", lastName: "Kyoma",diseases: ["Delusional disorder", "Memory loss"]}
+  ]);
 
+  const [doctors ,setDoctors ]=useState([
+    {doctorID: "6215",firstName: "Jalaluddin",lastName: "Mahbub",teamID: "008",doctorType: "Consultant",email: "jabub@hospital.com",active: true,doctorRequests: []},
+    {doctorID: "6216",firstName: "Amin",lastName: "Morshed",teamID: "008",doctorType: "Assistant Consultant",email: "amhed@hospital.com",active: true},
+    {doctorID: "6214",firstName: "Mahady",lastName: "Selim",teamID: "005",doctorType: "Consultant",email: "malim@hospital.com",active: true,doctorRequests: ["6213",]},
+    {doctorID: "6213",firstName: "Jamela",lastName: "Begum",teamID: "005",doctorType: "RMO",email: "jagum@hospital.com",active: false}]);
+
+  const [teams ,setTeams ]=useState([
+    {teamName: "nephrology",teamID: "008",consultantInCharge: "6215",teamMates: ["6216",]},
+    {teamName: "cardiology",teamID: "005",consultantInCharge: "6214",teamMates: []}
+  ]);
+
+
+  const [pageDataOf, setPageDataOf]=useState('Qustion1');
   const [kidneyNeeded,SetkidneyNeeded]=useState('0');
+  const [showMsgQus3,setShowMsgQus3]=useState(false);
+
+
+
 
   var patientsDataSorted = [...patients];
   patientsDataSorted.sort((a,b) => a.patientID - b.patientID);
@@ -84,10 +106,17 @@ const App=()=> {
     pageData= <Qustion1 patientsDataSorted={patientsDataSorted} kidneyNeeded={kidneyNeeded} admittePatient={admittePatient}/>;
   }
   else if(pageDataOf=='Qustion2'){
-    pageData=<Qustion2 patientsDataSorted={patientsDataSorted} addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}/>;
+    pageData=<Qustion2 doctors={doctors} setDoctors={setDoctors} 
+              teams={teams} setTeams={setTeams}/>;
   }
 else{
-  pageData=<Qustion3 patientsDataSorted={patientsDataSorted} addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}/>;
+  pageData=<Qustion3 
+            patients={patientsFromOhterHos} 
+            setPatients={setPatientsFromOhterHos} 
+            patientsDataSorted={patientsDataSorted} 
+            addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}
+            showMsg={showMsgQus3} setShowMsg={setShowMsgQus3}
+            />;
 }
 
 
@@ -95,14 +124,12 @@ else{
     <div className="App">
       
       <button onClick={()=>setPageDataOf('Qustion1')}>Qustion1</button>
-      <button onClick={()=>setPageDataOf('Qustion2')}>Qustion2</button>
       <button onClick={()=>setPageDataOf('Qustion3')}>Qustion3</button>
+      <button onClick={()=>setPageDataOf('Qustion2')}>Qustion2</button>
 
       {pageData}
 
-     
 
-      
 
 
 

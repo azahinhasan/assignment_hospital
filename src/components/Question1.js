@@ -148,7 +148,7 @@ return (
         })
       }
     </table>
-
+    <p style={{color: 'blue'}}>[P.S. Diseases number less then 2 will show Disease]</p>
 
     </div>
   );

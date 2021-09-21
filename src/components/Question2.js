@@ -2,61 +2,18 @@
 import '../App.css';
 import React,{useState,useEffect} from 'react';
 
-const Question2=(props)=> {
+const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
-  const [doctors ,setDoctors ]=useState([
-    {
-      doctorID: "6215",
-      firstName: "Jalaluddin",
-      lastName: "Mahbub",
-      teamID: "008",
-      doctorType: "Consultant",
-      email: "jabub@hospital.com",
-      active: true,
-      doctorRequests: ['25']
-  },
-  {
-      doctorID: "6216",
-      firstName: "Amin",
-      lastName: "Morshed",
-      teamID: "008",
-      doctorType: "Assistant Consultant",
-      email: "amhed@hospital.com",
-      active: true
-  },
-  {
-      doctorID: "6214",
-      firstName: "Mahady",
-      lastName: "Selim",
-      teamID: "005",
-      doctorType: "Consultant",
-      email: "malim@hospital.com",
-      active: true,
-      doctorRequests: ["6213", ]
-  },
-  {
-      doctorID: "6213",
-      firstName: "Jamela",
-      lastName: "Begum",
-      teamID: "005",
-      doctorType: "RMO",
-      email: "jagum@hospital.com",
-      active: false
-  }]);
+  // const [doctors ,setDoctors ]=useState([
+  //   {doctorID: "6215",firstName: "Jalaluddin",lastName: "Mahbub",teamID: "008",doctorType: "Consultant",email: "jabub@hospital.com",active: true,doctorRequests: []},
+  //   {doctorID: "6216",firstName: "Amin",lastName: "Morshed",teamID: "008",doctorType: "Assistant Consultant",email: "amhed@hospital.com",active: true},
+  //   {doctorID: "6214",firstName: "Mahady",lastName: "Selim",teamID: "005",doctorType: "Consultant",email: "malim@hospital.com",active: true,doctorRequests: ["6213",]},
+  //   {doctorID: "6213",firstName: "Jamela",lastName: "Begum",teamID: "005",doctorType: "RMO",email: "jagum@hospital.com",active: false}]);
 
-  const [teams ,setTeams ]=useState([
-    {
-      teamName: "nephrology",
-      teamID: "008",
-      consultantInCharge: "6215",
-      teamMates: ["6216",]
-  },
-  {
-      teamName: "cardiology",
-      teamID: "005",
-      consultantInCharge: "6214",
-      teamMates: []
-  }])
+  // const [teams ,setTeams ]=useState([
+  //   {teamName: "nephrology",teamID: "008",consultantInCharge: "6215",teamMates: ["6216",]},
+  //   {teamName: "cardiology",teamID: "005",consultantInCharge: "6214",teamMates: []}
+  // ]);
 
 
 
@@ -241,11 +198,11 @@ const Question2=(props)=> {
             <td><input onChange={e=>setFastName(e.target.value)}/></td>
             <td><input onChange={e=>setLastname(e.target.value)}/></td>
             <td>RMO</td>
-            <td onClick={()=>addNewDoc()}>ADD</td>
+            <td onClick={()=>addNewDoc()}  style={{cursor: 'default',color: 'blue'}}>ADD</td>
           </tr>
         </table>
 
-        <h5>{addMsg}</h5>
+        <h5  style={{color: 'blue'}}>{addMsg}</h5>
     </div>
     <br/>
     {/* ----------------------------------------------- */}
@@ -291,13 +248,18 @@ const Question2=(props)=> {
                 <td>{data.lastName}</td>
                 <td>{data.doctorType}</td>
                 <td>{data.email}</td>
-                <td>REMOVE | PROMOTION</td>
+                <td>
+                  <span style={{cursor: 'default',color: 'red'}}>REMOVE </span> 
+                  | 
+                  <span style={{cursor: 'default',color: 'green'}}> PROMOTION</span></td>
               </tr>
               :null
             )
         })
       }
       </table>
+
+      <p style={{color: 'blue'}}>[P.S. Promotion will chnage Doctor type only to Assistant Consultant]</p>
 
     </div>
   );
