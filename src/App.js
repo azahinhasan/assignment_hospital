@@ -103,7 +103,7 @@ const App=()=> {
   let pageData='';
 
   if(pageDataOf=='Qustion1'){
-    pageData= <Qustion1 patientsDataSorted={patientsDataSorted} kidneyNeeded={kidneyNeeded} admittePatient={admittePatient}/>;
+    pageData= <Qustion1 patientsDataSorted={patientsDataSorted} kidneyNeeded={kidneyNeeded} admittePatient={admittePatient} kidneysInStock={kidneysInStock}/>;
   }
   else if(pageDataOf=='Qustion2'){
     pageData=<Qustion2 doctors={doctors} setDoctors={setDoctors} 

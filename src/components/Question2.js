@@ -84,7 +84,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
   const doctorRequestsList=()=>{
     doctors.map(d=>{
 
-       {d.doctorID==localStorage.getItem('doctorID') ?setDocReqs(d.doctorRequests):console.log(['doctorRequestsList'])}
+      {d.doctorID==localStorage.getItem('doctorID') ?setDocReqs(d.doctorRequests):console.log(['doctorRequestsList'])}
     })
 
     // d.doctorID==localStorage.getItem('doctorID')?
@@ -94,7 +94,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
   }
 
 
-  const addDocToTeam=(id)=>{
+  const addDocToTeam=(id,teamid)=>{
 
     const teamID = localStorage.getItem('teamID');
     let newData=doctors.map(el => (el.doctorID === id ? {...el, teamID,active:true} : el))
@@ -102,6 +102,22 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     console.log('addDocToTeam');
 
     removeFromDocReq(id,newData);
+
+
+    //add to team array 
+    let updateUser=[];
+
+      teams.map(d=>{
+          {d.teamID==localStorage.getItem('teamID') ?
+          
+          updateUser=d : console.log(d.teamID)}
+        })
+        updateUser.teamMates.push(id);
+
+        const filterDoc = teams.filter(d => d.teamID!=localStorage.getItem('teams'));
+        setTeams([updateUser,...filterDoc]);
+
+        console.log(teams,'newTeam');
 
 
   }
@@ -149,6 +165,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
     setDoctors(doctors.map(el => (el.doctorID == id ? {...el, teamID:'none',active:false} : el)));
 
+
     console.log("promotionDoc");
   }
 
@@ -173,8 +190,9 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     <br/>
 
     
-      <h5>[-- I store DoctorID(6215),Type(Consultant) and TeamNumber in the loacal storage]</h5>
-      <h5>[-- Because Assuming that he is logged in. After login those data store in LoacalStorage]</h5>
+      <h4>[-- I store DoctorID(6215),Type(Consultant) and TeamNumber in the loacal storage]</h4>
+      <h4>[-- Because Assuming that he is logged in. After login those data will store in LoacalStorage]</h4>
+      <h4>[-- You can find localStorage.setItem in useEffect hook of Question2.js file]</h4>
       <br/>
       <h2>List all Doctor sroted by ID</h2>
       <br/> 
@@ -210,7 +228,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     {/* ----------------------------------------------- */}
     <h2>Add New Doctor</h2>
     <br/>
-
+    <p>Only Consultant can added new doctor and no emply text box is allowed</p>
+    <br/>
     <div>
         <table>       
           {/* <tr>
@@ -224,7 +243,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
             <td><input placeholder="FirstName" value={fastName} onChange={e=>setFastName(e.target.value)}/></td>
             <td><input placeholder="LastName" value={lastName} onChange={e=>setLastname(e.target.value)}/></td>
             {/* <td>Type: RMO</td> */}
-            <td onClick={()=>addNewDoc()}  style={{cursor: 'default',color: 'blue'}}>ADD</td>
+            <td onClick={()=>addNewDoc()}  style={{cursor: 'pointer',color: 'blue'}}>ADD</td>
           </tr>
         </table>
 
@@ -244,7 +263,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
               return(
                 <tr>
                   <td>{d}</td>
-                  <td onClick={()=>addDocToTeam(d)} style={{cursor: 'default',color: 'blue'}}>ADD to TEAM</td>
+                  <td onClick={()=>addDocToTeam(d)} style={{cursor: 'pointer',color: 'blue'}}>ADD to TEAM</td>
                 </tr>
                 )
         })}
@@ -275,9 +294,9 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
                 <td>{data.doctorType}</td>
                 <td>{data.email}</td>
                 <td>
-                  <span onClick={()=>removeDocFromTeam(data.doctorID)} style={{cursor: 'default',color: 'red'}}>REMOVE </span> 
+                  <span onClick={()=>removeDocFromTeam(data.doctorID)} style={{cursor: 'pointer',color: 'red'}}>REMOVE </span> 
                   | 
-                  <span  onClick={()=>promotionDoc(data.doctorID)} style={{cursor: 'default',color: 'green'}}> PROMOTION</span></td>
+                  <span  onClick={()=>promotionDoc(data.doctorID)} style={{cursor: 'pointer',color: 'green'}}> PROMOTION</span></td>
               </tr>
               :null
             )

@@ -80,7 +80,7 @@ return (
                     <td>{data.patientID}</td>
                     <td>{data.lastName}</td>
                     <td>{data.firstName}</td>
-                    <td style={{cursor: 'default',color: 'blue'}} onClick={()=>props.admittePatient(data.patientID)}>Admitte</td>
+                    <td style={{cursor: 'pointer',color: 'blue'}} onClick={()=>props.admittePatient(data.patientID)}>Admitte</td>
                 </tr>
                 :null
                 )
@@ -94,7 +94,7 @@ return (
 
     <h2>List of the patients who require kidneys</h2>
     <br/>
-    <h4>Total Kidney Needed: {props.kidneyNeeded}</h4>
+    <h4>--We need more <span style={{color: 'blue',fontWeight:'bold'}}> {props.kidneysInStock-props.kidneyNeeded}</span> patients to finish the kidney stock--</h4>
     <br/>
     <table>      
           <tr>

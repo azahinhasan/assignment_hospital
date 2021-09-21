@@ -45,7 +45,7 @@ const Question3=(props)=> {
                 <td>{data.lastName}</td>
                 <td>{data.firstName}</td>
                 <td 
-                    style={{cursor: 'default',color: 'blue'}}
+                    style={{cursor: 'pointer',color: 'blue'}}
                     onClick={()=>deleteData(data)}
                     
                     >ADD</td>
