@@ -143,8 +143,11 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     console.log("promotionDoc");
   }
 
-  const removeDocFromTeam=()=>{
+  const removeDocFromTeam=(id)=>{
 
+    setDoctors(doctors.map(el => (el.doctorID == id ? {...el, teamID:'none',active:false} : el)));
+
+    console.log("promotionDoc");
   }
 
 
@@ -176,13 +179,13 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
       <table>
                 
           <tr>
-                <th>doctorID</th>
-                <th>firstName</th>
-                <th>lastName</th>
-                <th>teamID</th>
-                <th>doctorType</th>
-                <th>email</th>
-                <th>active status</th>
+                <th>DoctorID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>TeamID</th>
+                <th>DoctorType</th>
+                <th>Email</th>
+                <th>Active Status</th>
 
           </tr>
       { doctorsDataSorted.map(data=>{
@@ -208,17 +211,17 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
     <div>
         <table>       
-          <tr>
+          {/* <tr>
               <th>FirstName</th>
               <th>LastName</th>
               <th>Type</th>
               <th>Action</th>
-          </tr>
+          </tr> */}
 
           <tr>
-            <td><input onChange={e=>setFastName(e.target.value)}/></td>
-            <td><input onChange={e=>setLastname(e.target.value)}/></td>
-            <td>RMO</td>
+            <td><input placeholder="FirstName" onChange={e=>setFastName(e.target.value)}/></td>
+            <td><input placeholder="LastName" onChange={e=>setLastname(e.target.value)}/></td>
+            {/* <td>Type: RMO</td> */}
             <td onClick={()=>addNewDoc()}  style={{cursor: 'default',color: 'blue'}}>ADD</td>
           </tr>
         </table>
@@ -232,8 +235,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
       <table>
           <tr>
-                <th>doctorRequests</th>
-                <th>active status</th>
+                <th>Doctor Requests</th>
+                <th>Active Status</th>
           </tr>
         {docReqs.map(d=>{
               return(
