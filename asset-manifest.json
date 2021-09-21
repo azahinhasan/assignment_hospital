@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/assignment_hospital/static/css/main.9362daa6.chunk.css",
-    "main.js": "/assignment_hospital/static/js/main.09f451ed.chunk.js",
-    "main.js.map": "/assignment_hospital/static/js/main.09f451ed.chunk.js.map",
+    "main.js": "/assignment_hospital/static/js/main.d37a5d44.chunk.js",
+    "main.js.map": "/assignment_hospital/static/js/main.d37a5d44.chunk.js.map",
     "runtime-main.js": "/assignment_hospital/static/js/runtime-main.414e9fa7.js",
     "runtime-main.js.map": "/assignment_hospital/static/js/runtime-main.414e9fa7.js.map",
-    "static/js/2.36cc8cf9.chunk.js": "/assignment_hospital/static/js/2.36cc8cf9.chunk.js",
-    "static/js/2.36cc8cf9.chunk.js.map": "/assignment_hospital/static/js/2.36cc8cf9.chunk.js.map",
+    "static/js/2.00de7038.chunk.js": "/assignment_hospital/static/js/2.00de7038.chunk.js",
+    "static/js/2.00de7038.chunk.js.map": "/assignment_hospital/static/js/2.00de7038.chunk.js.map",
     "static/js/3.0bea8efa.chunk.js": "/assignment_hospital/static/js/3.0bea8efa.chunk.js",
     "static/js/3.0bea8efa.chunk.js.map": "/assignment_hospital/static/js/3.0bea8efa.chunk.js.map",
     "index.html": "/assignment_hospital/index.html",
     "static/css/main.9362daa6.chunk.css.map": "/assignment_hospital/static/css/main.9362daa6.chunk.css.map",
-    "static/js/2.36cc8cf9.chunk.js.LICENSE.txt": "/assignment_hospital/static/js/2.36cc8cf9.chunk.js.LICENSE.txt",
+    "static/js/2.00de7038.chunk.js.LICENSE.txt": "/assignment_hospital/static/js/2.00de7038.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/assignment_hospital/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.414e9fa7.js",
-    "static/js/2.36cc8cf9.chunk.js",
+    "static/js/2.00de7038.chunk.js",
     "static/css/main.9362daa6.chunk.css",
-    "static/js/main.09f451ed.chunk.js"
+    "static/js/main.d37a5d44.chunk.js"
   ]
 }
