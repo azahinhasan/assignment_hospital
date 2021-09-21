@@ -47,7 +47,7 @@ return (
           </tr>
       { props.patientsDataSorted.map(data=>{
             return(
-              <tr>
+              <tr key={data.patientID}>
                 <td>{data.patientID}</td>
                 <td>{data.lastName}</td>
                 <td>{data.firstName}</td>
@@ -67,7 +67,7 @@ return (
       <br/>
       {count>0?
         <table>      
-            <tr>
+            <tr >
                     <th>PatientID</th>
                     <th>LastName</th>
                     <th>FirstName</th>
@@ -108,7 +108,7 @@ return (
               data.diseases.find(e=>e=='1-kidney')!=undefined?
               
               // data.diseases=='1-kidney'?
-                  <tr>
+                  <tr key={data.patientID}>
                     <td>{data.patientID}</td>
                     <td>{data.lastName}</td>
                     <td>{data.firstName}</td>
@@ -138,7 +138,7 @@ return (
             return(
 
               data.diseases.find(e=>e=='COVID')!=undefined?
-                  <tr>
+                  <tr key={data.patientID}>
                     <td>{data.lastName}</td>
                     <td>{data.firstName}</td>
                     <td>{data.diseases.length} {data.diseases.length>1?'diseases':'disease'}</td>

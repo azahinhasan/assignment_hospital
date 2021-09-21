@@ -210,7 +210,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
           </tr>
       { doctorsDataSorted.map(data=>{
             return(
-              <tr>
+              <tr key={data.doctorID}>
                 <td>{data.doctorID}</td>
                 <td>{data.firstName}</td>
                 <td>{data.lastName}</td>
@@ -265,7 +265,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
           </tr>
         {docReqs.map(d=>{
               return(
-                <tr>
+                <tr key={d}>
                   <td>{d}</td>
                   <td onClick={()=>addDocToTeam(d)} style={{cursor: 'pointer',color: 'blue'}}>ADD to TEAM</td>
                 </tr>
@@ -293,7 +293,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
            
             return(
             data.teamID==localStorage.getItem('teamID')&& data.doctorID!=localStorage.getItem('doctorID')?
-              <tr>
+              <tr key={data.doctorID}>
                 <td>{data.doctorID}</td>
                 <td>{data.firstName}</td>
                 <td>{data.lastName}</td>

@@ -41,7 +41,7 @@ const Question3=(props)=> {
 
       {props.patients.map(data=>{
             return(
-              <tr>
+              <tr key={data.lastName}>
                 <td>{data.lastName}</td>
                 <td>{data.firstName}</td>
                 <td 
