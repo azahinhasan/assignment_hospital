@@ -53,7 +53,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
         //setDoctors(concat);
         setAddMsg('New doctor Added!');
-
+        setFastName('');
+        setLastname('');
         let updateUser=[];
 
         doctors.map(d=>{
@@ -68,7 +69,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
         const filterDoc = concat.filter(d => d.doctorID!=localStorage.getItem('doctorID'));
         //concat is-- with New doc.
 
-        setDoctors([updateUser,...filterDoc])
+        setDoctors([updateUser,...filterDoc]);
+     
         //console.log(updateUser);
       }
     }
@@ -185,7 +187,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
                 <th>TeamID</th>
                 <th>DoctorType</th>
                 <th>Email</th>
-                <th>Active Status</th>
+                <th>Account Active Status</th>
 
           </tr>
       { doctorsDataSorted.map(data=>{
@@ -219,8 +221,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
           </tr> */}
 
           <tr>
-            <td><input placeholder="FirstName" onChange={e=>setFastName(e.target.value)}/></td>
-            <td><input placeholder="LastName" onChange={e=>setLastname(e.target.value)}/></td>
+            <td><input placeholder="FirstName" value={fastName} onChange={e=>setFastName(e.target.value)}/></td>
+            <td><input placeholder="LastName" value={lastName} onChange={e=>setLastname(e.target.value)}/></td>
             {/* <td>Type: RMO</td> */}
             <td onClick={()=>addNewDoc()}  style={{cursor: 'default',color: 'blue'}}>ADD</td>
           </tr>
@@ -235,14 +237,14 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
       <table>
           <tr>
-                <th>Doctor Requests</th>
+                <th>Doctor Requests ID</th>
                 <th>Active Status</th>
           </tr>
         {docReqs.map(d=>{
               return(
                 <tr>
                   <td>{d}</td>
-                  <td onClick={()=>addDocToTeam(d)}>ADD to TEAM</td>
+                  <td onClick={()=>addDocToTeam(d)} style={{cursor: 'default',color: 'blue'}}>ADD to TEAM</td>
                 </tr>
                 )
         })}
