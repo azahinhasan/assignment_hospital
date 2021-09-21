@@ -13,7 +13,7 @@ const Question2=(props)=> {
       doctorType: "Consultant",
       email: "jabub@hospital.com",
       active: true,
-      doctorRequests: []
+      doctorRequests: ['25']
   },
   {
       doctorID: "6216",
@@ -125,7 +125,7 @@ const Question2=(props)=> {
   const doctorRequestsList=()=>{
     doctors.map(d=>{
 
-       {d.doctorID==localStorage.getItem('doctorID') ?setDocReqs(d.doctorRequests):console.log(d.doctorRequests)}
+       {d.doctorID==localStorage.getItem('doctorID') ?setDocReqs(d.doctorRequests):console.log(['doctorRequestsList'])}
     })
 
     // d.doctorID==localStorage.getItem('doctorID')?
@@ -141,8 +141,41 @@ const Question2=(props)=> {
     let newData=doctors.map(el => (el.doctorID === id ? {...el, teamID,active:true} : el))
     setDoctors(newData);
     console.log('addDocToTeam');
+
+    removeFromDocReq(id,newData);
+
+
   }
 
+  const removeFromDocReq=(id,updatedData)=>{
+
+    let updateUser=[];
+    updatedData.map(d=>{
+      {d.doctorID==localStorage.getItem('doctorID') ?
+      
+      updateUser=d : console.log(d.doctorRequests)}
+    })
+
+
+    
+    // updateUser.doctorRequests.filter(item => item != 6282);
+
+    // let a = [...updateUser.doctorRequests, ...updateUser.doctorRequests.filter(item => item != 6282)]
+    
+    // const filterDoc = doctors.filter(d => d.doctorID!=localStorage.getItem('doctorID'));
+
+    // setDoctors([updateUser,...filterDoc]);
+
+    let doctorRequestsRemove = updateUser.doctorRequests.filter(item => item != id);
+
+    let newData=updatedData.map(el => (el.doctorID ===  localStorage.getItem('doctorID') ? {...el, doctorRequests:doctorRequestsRemove} : el));
+    
+    setDoctors(newData);
+    setDocReqs(doctorRequestsRemove);
+
+    console.log(doctorRequestsRemove);
+
+  }
 
   useEffect(()=>{
     localStorage.setItem('doctorID', 6215);
