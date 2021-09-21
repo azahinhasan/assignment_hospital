@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React,{useState,useEffect} from 'react';
 import Qustion1 from './components/Question1';
+import Qustion2 from './components/Question2';
 import Qustion3 from './components/Question3';
 
 const App=()=> {
@@ -83,7 +84,7 @@ const App=()=> {
     pageData= <Qustion1 patientsDataSorted={patientsDataSorted} kidneyNeeded={kidneyNeeded} admittePatient={admittePatient}/>;
   }
   else if(pageDataOf=='Qustion2'){
-    pageData=<Qustion3 patientsDataSorted={patientsDataSorted} addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}/>;
+    pageData=<Qustion2 patientsDataSorted={patientsDataSorted} addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}/>;
   }
 else{
   pageData=<Qustion3 patientsDataSorted={patientsDataSorted} addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}/>;
