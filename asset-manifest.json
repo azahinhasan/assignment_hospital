@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/assignment_hospital/static/css/main.a97a1444.chunk.css",
-    "main.js": "/assignment_hospital/static/js/main.5c644e71.chunk.js",
-    "main.js.map": "/assignment_hospital/static/js/main.5c644e71.chunk.js.map",
+    "main.js": "/assignment_hospital/static/js/main.8acb38d0.chunk.js",
+    "main.js.map": "/assignment_hospital/static/js/main.8acb38d0.chunk.js.map",
     "runtime-main.js": "/assignment_hospital/static/js/runtime-main.414e9fa7.js",
     "runtime-main.js.map": "/assignment_hospital/static/js/runtime-main.414e9fa7.js.map",
     "static/js/2.accbbdfc.chunk.js": "/assignment_hospital/static/js/2.accbbdfc.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.414e9fa7.js",
     "static/js/2.accbbdfc.chunk.js",
     "static/css/main.a97a1444.chunk.css",
-    "static/js/main.5c644e71.chunk.js"
+    "static/js/main.8acb38d0.chunk.js"
   ]
 }
