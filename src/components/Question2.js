@@ -225,6 +225,8 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     </table>
 
 
+
+
     {/* ----------------------------------------------- */}
     <h2>Add New Doctor</h2>
     <br/>
@@ -250,8 +252,10 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
         <h5  style={{color: 'blue'}}>{addMsg}</h5>
     </div>
     <br/>
+
+
     {/* ----------------------------------------------- */}
-    <h2>Doctor Request of {localStorage.getItem('doctorID')}</h2>
+    <h2>Doctor Request of {localStorage.getItem('doctorID')} no. Doctor</h2>
     <br/>
 
       <table>
@@ -270,8 +274,10 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
       </table>
 
 
+
+
     {/* ----------------------------------------------- */}
-    <h2>Teams Members of {localStorage.getItem('teamID')}</h2>
+    <h2>Teams Members of {localStorage.getItem('teamID')} no. Team</h2>
     <br/>
 
       <table>
