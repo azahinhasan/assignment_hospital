@@ -109,7 +109,7 @@ const Question2=(props)=> {
         updateUser.doctorRequests.push(newID);
         
         const filterDoc = concat.filter(d => d.doctorID!=localStorage.getItem('doctorID'));
-        //concat is with New doc.
+        //concat is-- with New doc.
 
         setDoctors([updateUser,...filterDoc])
         //console.log(updateUser);
@@ -137,6 +137,10 @@ const Question2=(props)=> {
 
   const addDocToTeam=(id)=>{
 
+    const teamID = localStorage.getItem('teamID');
+    let newData=doctors.map(el => (el.doctorID === id ? {...el, teamID,active:true} : el))
+    setDoctors(newData);
+    console.log('addDocToTeam');
   }
 
 
