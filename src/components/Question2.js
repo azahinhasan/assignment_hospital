@@ -175,7 +175,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     <br/>
 
     
-      <h4>[-- I store DoctorID(6215),Type(Consultant) and TeamNumber in the loacal storage]</h4>
+      <h4>[-- I store DoctorID(6215),Type(Consultant) and TeamNumber in the local storage]</h4>
       <h4>[-- Because Assuming that he is logged in. After login those data will store in LoacalStorage]</h4>
       <h4>[-- You can find localStorage.setItem in useEffect hook of Question2.js file]</h4>
       <br/>
