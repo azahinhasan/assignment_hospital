@@ -57,9 +57,6 @@ const App=()=> {
 
   const countKendyPatient=()=>{
     let count = 0;
-    
-    //  data.diseases.find(e=>e=='1-kidney')!=undefined?
-
     patients.map(data=>{
       if (data.diseases.find(e=>e=='1-kidney')!=undefined){
         count++;
@@ -79,14 +76,7 @@ const App=()=> {
   }
 
   const addNewPatientFromOtherHospitalHandler=(data)=>{
-
-    // let d= [{patientID:50,isAdmitted: true}]
-    // let newPa=[...d,data];
-
-
-   setPatients([{firstName: data.firstName, lastName:data.lastName,patientID: uniqueID(),diseases: data.diseases,isAdmitted: true},...patients]);
-
-
+    setPatients([{firstName: data.firstName, lastName:data.lastName,patientID: uniqueID(),diseases: data.diseases,isAdmitted: true},...patients]);
     console.log(patients);
   }
 
@@ -109,15 +99,15 @@ const App=()=> {
     pageData=<Qustion2 doctors={doctors} setDoctors={setDoctors} 
               teams={teams} setTeams={setTeams}/>;
   }
-else{
-  pageData=<Qustion3 
-            patients={patientsFromOhterHos} 
-            setPatients={setPatientsFromOhterHos} 
-            patientsDataSorted={patientsDataSorted} 
-            addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}
-            showMsg={showMsgQus3} setShowMsg={setShowMsgQus3}
-            />;
-}
+  else{
+    pageData=<Qustion3 
+              patients={patientsFromOhterHos} 
+              setPatients={setPatientsFromOhterHos} 
+              patientsDataSorted={patientsDataSorted} 
+              addNewPatientFromOtherHospital={addNewPatientFromOtherHospitalHandler}
+              showMsg={showMsgQus3} setShowMsg={setShowMsgQus3}
+              />;
+  }
 
 
   return (

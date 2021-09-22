@@ -9,9 +9,6 @@ const Question1=(props)=> {
 
     const countNotAdmitted=()=>{
         let count = 0;
-        
-        //  data.diseases.find(e=>e=='1-kidney')!=undefined?
-    
         props.patientsDataSorted.map(data=>{
           if (!data.isAdmitted){
             count++;
@@ -20,7 +17,6 @@ const Question1=(props)=> {
     
         setCount(count);
       }
-
 
 
       useEffect(()=>{
@@ -76,12 +72,12 @@ return (
         { props.patientsDataSorted.map(data=>{
                 return(
                 !data.isAdmitted?
-                <tr key={data.patientID}>
-                    <td>{data.patientID}</td>
-                    <td>{data.lastName}</td>
-                    <td>{data.firstName}</td>
-                    <td style={{cursor: 'pointer',color: 'blue'}} onClick={()=>props.admittePatient(data.patientID)}>Admitte</td>
-                </tr>
+                  <tr key={data.patientID}>
+                      <td>{data.patientID}</td>
+                      <td>{data.lastName}</td>
+                      <td>{data.firstName}</td>
+                      <td style={{cursor: 'pointer',color: 'blue'}} onClick={()=>props.admittePatient(data.patientID)}>Admitte</td>
+                  </tr>
                 :null
                 )
             })
@@ -98,9 +94,9 @@ return (
     <br/>
     <table>      
           <tr>
-                <th>PatientID</th>
-                <th>LastName</th>
-                <th>FirstName</th>
+              <th>PatientID</th>
+              <th>LastName</th>
+              <th>FirstName</th>
           </tr>
       { props.patientsDataSorted.map(data=>{
             return(

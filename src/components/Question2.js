@@ -70,8 +70,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
         //concat is-- with New doc.
 
         setDoctors([updateUser,...filterDoc]);
-     
-        //console.log(updateUser);
+
       }
     }
     else{
@@ -86,10 +85,6 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
       {d.doctorID==localStorage.getItem('doctorID') ?setDocReqs(d.doctorRequests):console.log(['doctorRequestsList'])}
     })
-
-    // d.doctorID==localStorage.getItem('doctorID')?
-    // null:null;
-
 
   }
 
@@ -126,20 +121,10 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
     let updateUser=[];
     updatedData.map(d=>{
+
       {d.doctorID==localStorage.getItem('doctorID') ?
-      
       updateUser=d : console.log(d.doctorRequests)}
     })
-
-
-    
-    // updateUser.doctorRequests.filter(item => item != 6282);
-
-    // let a = [...updateUser.doctorRequests, ...updateUser.doctorRequests.filter(item => item != 6282)]
-    
-    // const filterDoc = doctors.filter(d => d.doctorID!=localStorage.getItem('doctorID'));
-
-    // setDoctors([updateUser,...filterDoc]);
 
     let doctorRequestsRemove = updateUser.doctorRequests.filter(item => item != id);
 
@@ -166,7 +151,7 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     setDoctors(doctors.map(el => (el.doctorID == id ? {...el, teamID:'none',active:false} : el)));
 
 
-    console.log("promotionDoc");
+    console.log("removeDocFromTeam");
   }
 
 
@@ -234,13 +219,6 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
     <br/>
     <div>
         <table>       
-          {/* <tr>
-              <th>FirstName</th>
-              <th>LastName</th>
-              <th>Type</th>
-              <th>Action</th>
-          </tr> */}
-
           <tr>
             <td><input placeholder="FirstName" value={fastName} onChange={e=>setFastName(e.target.value)}/></td>
             <td><input placeholder="LastName" value={lastName} onChange={e=>setLastname(e.target.value)}/></td>
@@ -260,19 +238,18 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
       <table>
           <tr>
-                <th>Doctor Requests ID</th>
-                <th>Active Status</th>
+            <th>Doctor Requests ID</th>
+            <th>Active Status</th>
           </tr>
         {docReqs.map(d=>{
-              return(
-                <tr key={d}>
-                  <td>{d}</td>
-                  <td onClick={()=>addDocToTeam(d)} style={{cursor: 'pointer',color: 'blue'}}>ADD to TEAM</td>
-                </tr>
-                )
+          return(
+            <tr key={d}>
+              <td>{d}</td>
+              <td onClick={()=>addDocToTeam(d)} style={{cursor: 'pointer',color: 'blue'}}>ADD to TEAM</td>
+            </tr>
+            )
         })}
       </table>
-
 
 
 
@@ -282,16 +259,17 @@ const Question2=({doctors,setDoctors,teams,setTeams})=> {
 
       <table>
           <tr>
-                <th>DoctorID</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>DoctorType</th>
-                <th>Email</th>
-                <th>Active</th>
+              <th>DoctorID</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>DoctorType</th>
+              <th>Email</th>
+              <th>Active</th>
           </tr>
+
           {doctorsDataSorted.map(data=>{
-           
-            return(
+      
+          return(
             data.teamID==localStorage.getItem('teamID')&& data.doctorID!=localStorage.getItem('doctorID')?
               <tr key={data.doctorID}>
                 <td>{data.doctorID}</td>
